@@ -50,7 +50,9 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs--toggle="dropdown"  aria-expanded="true"> --}}
+                                {{-- <a class="nav-link dropdown-toggle" href=“#” id=“navbarDropdown” role=“button” data-bs-toggle=“dropdown” aria-expanded=“false”> --}}
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </a>
 
