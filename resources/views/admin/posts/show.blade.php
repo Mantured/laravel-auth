@@ -34,7 +34,7 @@
                             <button class="btn btn-warning">Edit</button>
                         </a>
                     </div>
-                    <form action="{{route('admin.posts.destroy', $post)}}" class="col-3 blackhole" method="POST" post-name="{{ucwords($post->title)}}">
+                    <form action="{{route('admin.posts.destroy', $post)}}" class="col-3 blackhole" method="POST" post-title="{{ucwords($post->title)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">
@@ -61,7 +61,7 @@
     blackHole.forEach(singleForm => {
         singleForm.addEventListener('submit', function (event) {
             event.preventDefault(); //acchiappo l'invio del form
-            userConfirm = window.confirm(`Are You Sure To Delate ${this.getAttribute('comic-name')}`);
+            userConfirm = window.confirm(`Are You Sure To Delate ${this.getAttribute('post-title')}`);
             if(userConfirm) {
                 this.submit();
             }
