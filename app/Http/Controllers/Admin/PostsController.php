@@ -28,7 +28,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -39,7 +39,32 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        /*
+        $request->validate([
+            'title'=>'required|min:3|max:20',
+            'content'=>'required|min:3|max:200',
+            'author'=>'required',
+        ],
+        [
+            'required' => "Non puoi aggiungere un Comic senza :attribute",
+            'description.min' => 'CARATTERI INFERIORI AL MINIMO CONSENTITO',
+            'description.required'=>'É OBBLIGATORIO',
+        ],
+
+        ); */
+
+        $newPost = new Post();
+        $newPost->title = $data["title"];
+        $newPost->author = $data["author"];
+        $newPost->image_url = $data["image_url"];
+        $newPost->content = $data["content"];
+        $newPost->slug = $data['title'];
+
+        $newPost->save();
+
+
+        return redirect()->route('admin.posts.show', $newPost->id);
     }
 
     /**
@@ -56,34 +81,41 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit', ["post" => $post]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request-> all();
+        $post->title = $data['title'];
+        $post->author = $data['author'];
+        $post->content = $data['content'];
+        $post->save();
+
+        return redirect()->route('admin.posts.show', $post)->with("message", "$post->title modificato con successo");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('admin.posts.index')->with('deleted-message', "$post->title é stato delittato correttamente");
     }
 }

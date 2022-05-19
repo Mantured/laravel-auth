@@ -11,6 +11,8 @@
         </main>
 
         @include('partials.footer')
+        {{-- my custom script --}}
+        @yield('footer-script')
     </div>
 </body>
 </html>

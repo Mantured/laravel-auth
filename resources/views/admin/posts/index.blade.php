@@ -5,6 +5,11 @@
 <div class="my-height overflow-scroll">
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
+            @if (session('deleted-message'))
+            <div class="alert alert-warning col-12">
+                {{ session('deleted-message') }}
+            </div>
+            @endif
             @forelse ( $posts as $post )
             <a class="text-decoration-none text-black" href="{{route('admin.posts.show', $post)}}">
                 <div class="col">
