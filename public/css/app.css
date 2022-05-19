@@ -11247,3 +11247,18 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+header,
+footer {
+  height: 8.13vh;
+}
+
+main {
+  /* overflow: scroll; */
+}
+main .my-height {
+  height: 80vh;
+}
+
+.show-height img {
+  height: 45vh;
+}
