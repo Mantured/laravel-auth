@@ -55,7 +55,7 @@
 @endsection
 
 
-@section('footer-script')
+{{-- @section('script-footer')
     <script>
     const blackHole = document.querySelectorAll('.blackhole');
     blackHole.forEach(singleForm => {
@@ -68,4 +68,4 @@
         })
     });
     </script>
-@endsection
+@endsection --}}

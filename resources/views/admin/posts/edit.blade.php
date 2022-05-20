@@ -12,10 +12,10 @@
             <div class="row h-100 justify-content-center align-items-center">
                 <div class="col-12">
                     <label for="image_url" class="size-label">Image URL</label>
-                    <input type="text" class="m-3" name="image_url " value="{{$post->image_url}}">
+                    <input type="text" class="m-3" name="image_url" value="{{$post->image_url}}">
                 </div>
                 <div class="col-12">
-                    <label for="author" class="size-label"></label>
+                    <label for="author" class="size-label">Author</label>
                     <input type="text" class="m-3" name="author" value="{{$post->author}}">
                 </div>
                 <div class="col-12">

@@ -40,7 +40,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        /*
+
         $request->validate([
             'title'=>'required|min:3|max:20',
             'content'=>'required|min:3|max:200',
@@ -52,7 +52,7 @@ class PostsController extends Controller
             'description.required'=>'É OBBLIGATORIO',
         ],
 
-        ); */
+        );
 
         $newPost = new Post();
         $newPost->title = $data["title"];
@@ -101,6 +101,7 @@ class PostsController extends Controller
         $data = $request-> all();
         $post->title = $data['title'];
         $post->author = $data['author'];
+        $post->image_url = $data['image_url'];
         $post->content = $data['content'];
         $post->save();
 
